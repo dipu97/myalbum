@@ -198,7 +198,7 @@
         </div>
         <div class="navbar navbar-dark bg-dark shadow-sm">
             <div class="container">
-                <a href="{% url 'index'%}" class="navbar-brand d-flex align-items-center">
+                <a href="#" class="navbar-brand d-flex align-items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
                         stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2"
                         viewBox="0 0 24 24">
@@ -221,21 +221,11 @@
             <div class="container">
                 <form action="" method="post" enctype="multipart/form-data">
                     {%csrf_token%}
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Title</label>
-                        <input type="text" name="title" class="form-control" id="exampleFormControlInput1">
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-                        <textarea class="form-control" name="description" id="exampleFormControlTextarea1"
-                            rows="3"></textarea>
-                    </div>
-                    <div>
-
-                        <input class="form-control form-control-lg" name="image" id="formFileLg" type="file">
-
-                    </div>
-                    <button type="submit" class="btn btn-success my-3">Submit</button>
+                    <h1>Are you sure to delete {{object.title}}</h1>
+                    <button type="submit" class="btn btn-danger my-3">Delete</button>
+                    <a href="{% url 'index' %}">
+                        <button type="submit" class="btn btn-secondary my-3">Cancel</button>
+                    </a>
                 </form>
 
             </div>

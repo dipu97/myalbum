@@ -1,4 +1,4 @@
-
+from django.urls import reverse
 from django.db import models
 from cloudinary.models import CloudinaryField
 # Create your models here.
@@ -12,3 +12,6 @@ class album(models.Model):
 
     def __str__(self):
         return self.title
+    def get_delete_url(self):
+        return reverse('delete', kwargs={
+            'id':self.id        })
