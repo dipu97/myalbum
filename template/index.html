@@ -241,11 +241,19 @@
               <div class="card-body">
                 <p class="card-text">{{data.description}}</p>
                 <div class="d-flex justify-content-between align-items-center">
+
+                  {% if request.user.is_authenticated %}
                   <div class="btn-group">
                     <a href="{{data.get_delete_url}}"><button type="button"
-                        class="btn btn-sm btn-outline-danger">Delete</button></a>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                        class="btn btn-sm btn-outline-danger m-3">Delete</button></a>
+                    <a href="{{data.get_update_url}}"><button type="button"
+                        class="btn btn-sm btn-outline-secondary m-3">Edit</button></a>
                   </div>
+                  {% else %}
+                  <div class="btn-group"><button type="button"
+                      class="btn btn-sm btn-outline-secondary m-3">View</button></div>
+                  {% endif %}
+
                   <small class="text-body-secondary">{{ data.created_at | timesince}}</small>
                 </div>
               </div>

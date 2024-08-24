@@ -13,5 +13,6 @@ class album(models.Model):
     def __str__(self):
         return self.title
     def get_delete_url(self):
-        return reverse('delete', kwargs={
-            'id':self.id        })
+        return reverse('delete', kwargs={'id':self.id})
+    def get_update_url(self):
+        return reverse('update',kwargs={'id':self.id})
